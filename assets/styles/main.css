@@ -1,9 +1,47 @@
 body {
+    position: relative;
     background-color: #000000;
     padding: 30px 15px 0 15px;
 }
 
 main {
     max-width: 1000px;
+    margin: 100px auto;
 }
 
+span {
+    color: white;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height: 500px;
+    border: 1px solid white;
+}
+
+.watch {
+    border: 3px solid red;
+    width: 300px;
+    /*background-color: #000000;*/
+}
+
+.buttons {
+    display: flex;
+}
+
+.button-play {
+    width: 150px;
+    background-color: red;
+    border: 3px solid red;
+
+}
+
+.button-stop {
+    width: 150px;
+    background-color: red;
+    border: 3px solid red;
+}
