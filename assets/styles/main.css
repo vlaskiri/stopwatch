@@ -1,47 +1,72 @@
 body {
     position: relative;
-    background-color: #000000;
+    background: #000;
+    color: #fff;
     padding: 30px 15px 0 15px;
 }
 
 main {
-    max-width: 1000px;
-    margin: 100px auto;
+    max-width: 100%;
+    height: 90vh;
+    margin: 10px auto;
 }
 
-span {
+h1 {
     color: white;
+    font-size: 28px;
 }
 
 .display {
+    padding: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 900px;
-    height: 500px;
-    border: 1px solid white;
+    gap: 3px;
+
 }
 
 .watch {
-    border: 3px solid red;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
     width: 300px;
-    /*background-color: #000000;*/
 }
 
 .buttons {
     display: flex;
+    gap: 5px;
 }
 
-.button-play {
-    width: 150px;
-    background-color: red;
-    border: 3px solid red;
-
+button {
+    font-size: 20px;
 }
 
-.button-stop {
-    width: 150px;
-    background-color: red;
-    border: 3px solid red;
-}
+/*.button-play {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    width: 150px;*/
+/*    border: 2px solid red;*/
+/*}*/
+
+/*.button-play img {*/
+/*    width: 50px;*/
+/*    transform: rotate(90deg);*/
+/*    padding: 10px 0;*/
+/*}*/
+
+/*.button-stop {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    width: 150px;*/
+/*    border: 2px solid red;*/
+/*}*/
+
+/*.kube {*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    padding: 10px 0;*/
+/*    background-color: black;*/
+/*}*/
