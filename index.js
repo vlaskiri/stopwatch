@@ -15,15 +15,13 @@ function timer () {
     let mins = Math.floor((seconds - (hrs * 3600)) / 60);
     let secs = seconds % 60;
 
-    if (secs < 10) {
-        secs = '0' + secs;
+    function pad(unit) {
+        return (('0') + unit).length > 2 ? unit : '0' + unit;
     }
-    if (mins < 10) {
-        mins = '0' + mins;
-    }
-    if (hrs < 10) {
-        hrs = '0' + hrs;
-    }
+
+    secs = pad(secs);
+    mins = pad(mins);
+    hrs = pad(hrs);
 
     timerValue.innerText = `${hrs}:${mins}:${secs}`;
 }
