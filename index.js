@@ -40,6 +40,7 @@ function stop () {
 }
 
 function reset () {
+    stop();
     seconds = 0;
     timerValue.innerText = '00:00:00'
 }
