@@ -1,15 +1,11 @@
 //Global variables
 let startBtn = document.getElementById('start');
 let stopBtn = document.getElementById('stop');
+let resetBtn = document.getElementById('reset');
 let timerValue = document.getElementById('timer');
 
 let seconds = 0;
 let interval = null;
-
-//Event Listeners
-startBtn.addEventListener("click", start);
-stopBtn.addEventListener("click", stop);
-
 
 //Update the Timer
 function timer () {
@@ -45,22 +41,12 @@ function stop () {
     interval = null;
 }
 
+function reset () {
+    seconds = 0;
+    timerValue.innerText = '00:00:00'
+}
 
-// const state = {
-//     started: null
-// }
-//
-//
-// startBtn.addEventListener('click', () => {
-//     state.started = new Date().getTime();
-//     timerValue.innerHTML = state.started;
-// });
-//
-// stopBtn.addEventListener('click', () => {
-//     const nowDate = new Date().getTime();
-//     const stopWatch = nowDate - state.started;
-//     const milliseconds = stopWatch % 1000;
-//     const sec = ((stopWatch - milliseconds) / 1000) % 60;
-//     const minutes = (((stopWatch - milliseconds) / 1000) - sec) / 60;
-//     timerValue.innerHTML = `${minutes}:${sec}:${milliseconds}`;
-// });
+//Event Listeners
+startBtn.addEventListener("click", start);
+stopBtn.addEventListener("click", stop);
+resetBtn.addEventListener("click", reset);
