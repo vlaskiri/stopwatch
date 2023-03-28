@@ -16,7 +16,7 @@ function timer () {
     let secs = seconds % 60;
 
     function pad(unit) {
-        return (('0') + unit).length > 2 ? unit : '0' + unit;
+        return unit < 10 ? '0' + unit : unit;
     }
 
     secs = pad(secs);
