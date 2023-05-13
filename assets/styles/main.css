@@ -17,27 +17,55 @@ h1 {
 }
 
 .display {
-    padding: 100px;
+    width: 430px;
+    height: auto;
+    padding: 200px 60px;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 3px;
-
+    gap: 30px;
+    background-color: #393939;
+    border-radius: 30px;
 }
 
 .watch {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 5px;
     width: 300px;
 }
 
+#timer {
+    color: white;
+    font-size: 60px;
+}
+
+.watch:after {
+    content: "";
+    position: absolute;
+    width: 298px;
+    height: 0;
+    top: 322px;
+    border: 1px solid #000000;
+
+}
+
 .buttons {
+    padding: 10px 0;
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
 
 button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
     font-size: 20px;
+    background-color: white;
+}
+
+button:hover {
+    border: 1px solid #BC3939;
 }

@@ -45,9 +45,18 @@ function stop() {
 function reset() {
     stop();
     elapsedTime = 0;
-    timerValue.innerText = '00:00:00.000';
+    timerValue.innerText = '00:00:00:000';
 }
 
 startBtn.addEventListener('click', start);
 stopBtn.addEventListener('click', stop);
 resetBtn.addEventListener('click', reset);
+
+// startBtn.onclick = () => {
+//     if (startBtn === 'start') {
+//         startBtn = 'stop';
+//     }
+//     else {
+//         startBtn = ();
+//     }
+// }
