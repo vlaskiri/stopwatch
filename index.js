@@ -1,11 +1,12 @@
 let startBtn = document.getElementById('start');
-let stopBtn = document.getElementById('stop');
+let pauseBtn = document.getElementById('pause');
 let resetBtn = document.getElementById('reset');
 let timerValue = document.getElementById('timer');
 
 let startTime = null;
 let elapsedTime = 0;
 let timerInterval = null;
+let isTimerRunning = false; // Отслеживание состояния таймера
 
 function timer() {
     let currentDate = new Date().getTime();
@@ -16,40 +17,51 @@ function timer() {
     let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
     let milliseconds = Math.floor((elapsedTime % 1000));
 
+//функция для часов, минут и секунд
     function pad(unit) {
         return unit < 10 ? '0' + unit : unit;
+    }
+
+//Функция для миллисекунд//
+    function padms(unitms) {
+        return unitms < 100 ? '0' + unitms : unitms;
+
     }
 
     seconds = pad(seconds);
     minutes = pad(minutes);
     hours = pad(hours);
-    milliseconds = pad(milliseconds);
+    milliseconds = padms(milliseconds);
 
-    timerValue.innerText = `${hours}:${minutes}:${seconds}.${milliseconds}`;
+    timerValue.innerText = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 }
 
 function start() {
-    if (timerInterval) {
-        return;
+    if (isTimerRunning) {
+        pause();
+    } else {
+        startTime = new Date().getTime() - elapsedTime;
+        timerInterval = setInterval(timer, 10);
+        isTimerRunning = true;
+        startBtn.innerText = 'Pause';
     }
-
-    startTime = new Date().getTime() - elapsedTime;
-    timerInterval = setInterval(timer, 10);
 }
 
-function stop() {
+function pause() {
     clearInterval(timerInterval);
     timerInterval = null;
+    isTimerRunning = false;
+    startBtn.innerText = 'Start';
 }
 
 function reset() {
-    stop();
+    pause();
     elapsedTime = 0;
     timerValue.innerText = '00:00:00:000';
 }
 
 startBtn.addEventListener('click', start);
-stopBtn.addEventListener('click', stop);
+pauseBtn.addEventListener('click', pause);
 resetBtn.addEventListener('click', reset);
 
 // startBtn.onclick = () => {

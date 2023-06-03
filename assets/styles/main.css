@@ -32,14 +32,16 @@ h1 {
 .watch {
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 5px;
-    width: 300px;
+    width: 400px;
 }
 
 #timer {
+    text-align: center;
     color: white;
-    font-size: 60px;
+    font-size: 50px;
+    max-width: 300px;
+
 }
 
 .watch:after {
