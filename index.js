@@ -1,6 +1,8 @@
 let startBtn = document.getElementById('start');
-let pauseBtn = document.getElementById('pause');
 let resetBtn = document.getElementById('reset');
+let circleBtn = document.getElementById('circle');
+let circleList = document.getElementById('circleList'); // Элемент HTML для отображения списка кругов
+let circleTimes = []; // Массив для хранения значений времени кругов
 let timerValue = document.getElementById('timer');
 
 let startTime = null;
@@ -36,6 +38,13 @@ function timer() {
     timerValue.innerText = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 }
 
+function pause() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    isTimerRunning = false;
+    startBtn.innerText = 'Start';
+}
+
 function start() {
     if (isTimerRunning) {
         pause();
@@ -47,28 +56,23 @@ function start() {
     }
 }
 
-function pause() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-    isTimerRunning = false;
-    startBtn.innerText = 'Start';
-}
-
 function reset() {
     pause();
     elapsedTime = 0;
     timerValue.innerText = '00:00:00:000';
+    circleList.innerHTML = ''; // Очистка списка сохраненных данных времени круга
+}
+
+function circle() {
+    if (isTimerRunning) {
+        let currentCircleTime = timerValue.innerText;
+        circleTimes.unshift(currentCircleTime);
+        let listItem = document.createElement('li');
+        listItem.innerText = currentCircleTime;
+        circleList.insertBefore(listItem, circleList.firstChild);
+    }
 }
 
 startBtn.addEventListener('click', start);
-pauseBtn.addEventListener('click', pause);
 resetBtn.addEventListener('click', reset);
-
-// startBtn.onclick = () => {
-//     if (startBtn === 'start') {
-//         startBtn = 'stop';
-//     }
-//     else {
-//         startBtn = ();
-//     }
-// }
+circleBtn.addEventListener('click', circle);
